@@ -11,3 +11,8 @@ Library yang saya gunakan
 - Datatables
 - Jquery 3.6.0
 - Sweetalert
+
+**************************************
+Database
+**************************************
+databasenya terletak di file root repositori ini dengan nama "testILCS.sql"
