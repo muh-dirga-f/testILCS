@@ -21,35 +21,23 @@
                 Produk
             </div>
             <div class="card-body">
-                <h5 class="card-title">Daftar Produk</h5>
-                <a href="<?php echo base_url('produk/create') ?>" class="btn btn-success">Add New</a>
+                <h5 class="card-title">Edit Produk</h5>
                 <hr>
-                <table id="example" class="table table-striped" style="width:100%">
-                    <thead>
-                        <tr>
-                            <th>No.</th>
-                            <th>Title</th>
-                            <th>Price</th>
-                            <th>Actions</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <?php
-                        $i = 1;
-                        foreach ($produk as $val) {
-                            echo '
-                            <tr>
-                                <td width="80px">' . $i++ . '</td>
-                                <td>' . $val['title'] . '</td>
-                                <td>' . $val['price'] . '</td>
-                                <td><a href="'.base_url('produk/edit/'.$val['id_produk']).'" class="btn btn-primary">EDIT</a>|Delete</td>
-                            </tr>
-                            ';
-                        }
-                        ?>
-
-                    </tbody>
-                </table>
+                <form method="POST" action="<?php echo base_url('produk/update') ?>">
+                    <div class="mb-3">
+                        <label for="id_produk" class="form-label">ID</label>
+                        <input type="text" name="id_produk" class="form-control" id="id_produk" value="<?php echo $produk[0]['id_produk'] ?>">
+                    </div>
+                    <div class="mb-3">
+                        <label for="title" class="form-label">Title</label>
+                        <input type="text" name="title" class="form-control" id="title" value="<?php echo $produk[0]['title'] ?>">
+                    </div>
+                    <div class="mb-3">
+                        <label for="price" class="form-label">Price</label>
+                        <input type="number" name="price" class="form-control" id="price" value="<?php echo $produk[0]['price'] ?>">
+                    </div>
+                    <button type="submit" class="btn btn-success">Update</button>
+                </form>
             </div>
         </div>
     </div>
