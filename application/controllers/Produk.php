@@ -16,19 +16,22 @@ class Produk extends CI_Controller
         $this->load->view('produk/produk_list', $data);
     }
 
+    public function create()
+    {
+        $this->load->view('produk/produk_add');
+    }
+
     public function save()
     {
-        $data['id_barang'] = $this->input->post('id_barang');
-        $data['kategori'] = $this->input->post('kategori');
-        $data['uraian_penggunaan'] = $this->input->post('uraian_penggunaan');
-        $data['jumlah'] = $this->input->post('jumlah');
-        $data['total'] = $this->input->post('total');
+        $data['id_produk'] = null;
+        $data['title'] = $this->input->post('title');
+        $data['price'] = $this->input->post('price');
 
-        $this->penjualan_model->insert_penjualan($data);
+        $this->produk_model->insert_produk($data);
     }
 
     public function delete($id)
     {
-        $this->penjualan_model->hapus_penjualan($id);
+        $this->produk_model->apus_pproduk($id);
     }
 }

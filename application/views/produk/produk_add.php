@@ -21,34 +21,18 @@
                 Produk
             </div>
             <div class="card-body">
-                <h5 class="card-title">Daftar Produk</h5>
-                <a href="<?php echo base_url('produk/create') ?>" class="btn btn-primary">Add New</a>
-                <table id="example" class="table table-striped" style="width:100%">
-                    <thead>
-                        <tr>
-                            <th>No.</th>
-                            <th>Title</th>
-                            <th>Price</th>
-                            <th>Actions</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <?php
-                        $i = 1;
-                        foreach ($produk as $val) {
-                            echo '
-                            <tr>
-                                <td width="80px">' . $i++ . '</td>
-                                <td>' . $val['title'] . '</td>
-                                <td>' . $val['price'] . '</td>
-                                <td>' . $val['id_produk'] . 'Edit|Delete</td>
-                            </tr>
-                            ';
-                        }
-                        ?>
-
-                    </tbody>
-                </table>
+                <h5 class="card-title">Add Produk</h5>
+                <form method="POST" action="<?php echo base_url('produk/save') ?>">
+                    <div class="mb-3">
+                        <label for="title" class="form-label">Title</label>
+                        <input type="text" name="title" class="form-control" id="title">
+                    </div>
+                    <div class="mb-3">
+                        <label for="price" class="form-label">Price</label>
+                        <input type="number" name="price" class="form-control" id="price">
+                    </div>
+                    <button type="submit" class="btn btn-success">Save</button>
+                </form>
             </div>
         </div>
     </div>
