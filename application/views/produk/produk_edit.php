@@ -25,7 +25,7 @@
                 <form method="POST" action="<?php echo base_url('produk/update') ?>">
                     <div class="mb-3">
                         <label for="id_produk" class="form-label">ID</label>
-                        <input type="text" name="id_produk" class="form-control" id="id_produk" value="<?php echo $produk[0]['id_produk'] ?>">
+                        <input type="text" name="id_produk" class="form-control" id="id_produk" value="<?php echo $produk[0]['id_produk'] ?>" readonly>
                     </div>
                     <div class="mb-3">
                         <label for="title" class="form-label">Title</label>
