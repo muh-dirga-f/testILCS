@@ -42,7 +42,7 @@
                                 <td width="80px">' . $i++ . '</td>
                                 <td>' . $val['title'] . '</td>
                                 <td>' . $val['price'] . '</td>
-                                <td><a href="'.base_url('produk/edit/'.$val['id_produk']).'" class="btn btn-primary">EDIT</a>|Delete</td>
+                                <td><a href="' . base_url('produk/edit/' . $val['id_produk']) . '" class="btn btn-sm btn-primary">EDIT</a><a href="#" class="btn btn-sm btn-danger delete" data-id="' . $val['id_produk'] . '">DELETE</a></td>
                             </tr>
                             ';
                         }
@@ -54,6 +54,7 @@
         </div>
     </div>
 
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
     <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
     <script src="https://cdn.datatables.net/1.11.4/js/jquery.dataTables.min.js"></script>
@@ -61,6 +62,37 @@
     <script>
         $(document).ready(function() {
             $('#example').DataTable();
+            $('.delete').on('click', function() {
+                swal({
+                        title: "Apa anda yakin?",
+                        text: "Sekali menghapus tidak, data tidak dapat di kembalikan!",
+                        icon: "warning",
+                        buttons: true,
+                        dangerMode: true,
+                    })
+                    .then((willDelete) => {
+                        if (willDelete) {
+                            $.ajax({
+                                type: "GET",
+                                url: "<?php echo base_url('produk/delete/') ?>" + $(this).data('id'),
+                                dataType: "json",
+                                success: function (response) {
+                                    // console.log(response);
+                                    if(response.status == true){
+                                        swal("Berhasil!", "Data berhasil di hapus!", "success");
+                                        setTimeout(() => {
+                                            location.reload();
+                                        }, 2000);
+                                    }else{
+                                        swal("Gagal!", "Data gagal di hapus!", "error");
+                                    }   
+                                }
+                            });
+                        } else {
+                            swal("Aksi dibatalkan!");
+                        }
+                    });
+            })
         });
     </script>
 </body>

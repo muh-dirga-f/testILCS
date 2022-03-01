@@ -33,8 +33,14 @@ class Produk_model extends CI_Model
 
     public function delete_produk($id)
     {
-        $this->db->where('id_produk', $id);
-        $this->db->delete('produk');
-        header('Location: ' . base_url('/'));
+        $this->db->delete('produk', ['id_produk' => $id]);
+        $res = $this->db->affected_rows();
+        if ($res>0) {
+            echo json_encode(array("status" => true));
+        }
+        else
+        {
+            echo json_encode(array("status" => false));
+        }
     }
 }
