@@ -8,5 +8,6 @@ Kebutuhan Sistem
 Library yang saya gunakan
 **************************************
 - Bootstrap 5
+- Datatables
 - Jquery 3.6.0
 - Sweetalert
