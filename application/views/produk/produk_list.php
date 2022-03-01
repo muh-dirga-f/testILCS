@@ -65,7 +65,7 @@
             $('.delete').on('click', function() {
                 swal({
                         title: "Apa anda yakin?",
-                        text: "Sekali menghapus tidak, data tidak dapat di kembalikan!",
+                        text: "Sekali menghapus, data tidak dapat di kembalikan!",
                         icon: "warning",
                         buttons: true,
                         dangerMode: true,
