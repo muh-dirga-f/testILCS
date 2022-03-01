@@ -15,5 +15,5 @@ Library yang saya gunakan
 **************************************
 Instalasi Database
 **************************************
-- create table dengan nama "testILCS"
+- create database dengan nama "testILCS"
 - lalu insert database yang terletak di file root repositori ini dengan nama "testILCS.sql"
