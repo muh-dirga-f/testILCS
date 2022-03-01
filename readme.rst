@@ -13,6 +13,7 @@ Library yang saya gunakan
 - Sweetalert
 
 **************************************
-Database
+Instalasi Database
 **************************************
-databasenya terletak di file root repositori ini dengan nama "testILCS.sql"
+- create table dengan nama "testILCS"
+- lalu insert database yang terletak di file root repositori ini dengan nama "testILCS.sql"
